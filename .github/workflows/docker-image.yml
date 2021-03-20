@@ -11,19 +11,23 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    services:
-      redis:
-        image: acrmarch2021.azurecr.io/march21
-        credentials:
-          username: acrmarch2021
-          password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
-    container:
-      image: acrmarch2021.azurecr.io/march21
-      credentials:
-        username: acrmarch2021
-        password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
+#    services:
+ #     redis:
+  #      image: acrmarch2021.azurecr.io/march21
+   #     credentials:
+     #     username: acrmarch2021
+      #    password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
+    #container:
+     # image: acrmarch2021.azurecr.io/march21
+      #credentials:
+       # username: acrmarch2021
+        #password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
 
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: 
+        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        docker tag my-image-name:$(date +%s) acrmarch2021.azurecr.io/mrach21
+        docker login acrmarch2021.azurecr.io
+        docker push acrmarch2021.azurecr.io/march21
