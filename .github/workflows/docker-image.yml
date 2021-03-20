@@ -11,6 +11,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: acrmarch2021.azurecr.io/march21
+        credentials:
+          username: acrmarch2021
+          password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
     container:
       image: acrmarch2021.azurecr.io/march21
       credentials:
