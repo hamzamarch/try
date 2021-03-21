@@ -18,6 +18,11 @@ jobs:
           username: acrmarch2021 
           password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM 
           login-server: acrmarch2021.azurecr.io
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: ${{ servicePrincipal1.AZURE_CREDENTIALS }}
+        allow-no-subscriptions: true
     - name: Build and push Docker images
       uses: docker/build-push-action@v2.3.0
       with:
