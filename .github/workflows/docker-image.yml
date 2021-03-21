@@ -25,3 +25,13 @@ jobs:
         tags: acrmarch2021.azurecr.io/march22
     - name: push
       run: docker push acrmarch2021.azurecr.io/march22
+    - name: Deploy to Azure Container Instances
+      uses: Azure/aci-deploy@v1
+      with:
+        resource-group: original
+        image: acrmarch2021.azurecr.io/march22
+        registry-login-server: acrmarch2021.azurecr.io
+        registry-username: acrmarch2021
+        registry-password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
+        
+
