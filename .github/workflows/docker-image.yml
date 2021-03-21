@@ -43,7 +43,7 @@ jobs:
       uses: docker/build-push-action@v2.3.0
       with:
         push: --output=type=acrmarch2021.azurecr.io/march21
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        #run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
    # -  run: docker tag my-image-name:test acrmarch2021.azurecr.io/mrach21
    #   run: docker login acrmarch2021.azurecr.io
     #  run: docker push acrmarch2021.azurecr.io/march21
