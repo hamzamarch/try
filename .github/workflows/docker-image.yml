@@ -42,8 +42,10 @@ jobs:
         # uses: docker/build-push-action@9379083e426e2e84abb80c8c091f5cdeb7d3fd7a
       uses: docker/build-push-action@v2.3.0
       with:
-        push: true
+        load: true
         tag: acrmarch2021.azurecr.io/march21
+    - name: push
+      run: docker push acrmarch2021.azurecr.io/march21
         #run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
    # -  run: docker tag my-image-name:test acrmarch2021.azurecr.io/mrach21
    #   run: docker login acrmarch2021.azurecr.io
