@@ -33,9 +33,9 @@ jobs:
           password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM 
           # Container registry server url
           login-server: acrmarch2021.azurecr.io
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:test
+    #- name: Build the Docker image 
+     # uses: actions/checkout@v2
+       # run: docker build . --file Dockerfile --tag my-image-name:test
       # Push is a shorthand for --output=type=registry
     - name: Build and push Docker images
         # You may pin to the exact commit or the version.
