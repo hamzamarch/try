@@ -28,9 +28,8 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1
       with:
-        email: hamza112529@outlook.com
-        password: Password@12345
-    #    allow-no-subscriptions: true
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        allow-no-subscriptions: true
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
       with:
