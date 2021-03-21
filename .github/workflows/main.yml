@@ -27,11 +27,11 @@ jobs:
       uses: docker/build-push-action@v2.3.0
       with:
         load: true
-        tags: ghcr.io/hamzamarch/march23GHCR
+        tags: ghcr.io/hamzamarch/march23ghcr
     - name: push ACR
       run: docker push acrmarch2021.azurecr.io/march23
     - name: push GHCR
-      run: docker push ghcr.io/hamzamarch/march23GHCR
+      run: docker push ghcr.io/hamzamarch/march23ghcr
     - name: Azure Login
       uses: Azure/login@v1
       with:
