@@ -22,12 +22,28 @@ jobs:
       #credentials:
        # username: acrmarch2021
         #password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
-
+      
     steps:
+    - name: Azure Container Registry Login
+      uses: Azure/docker-login@v1
+      with:
+          # Container registry username
+          username: acrmarch2021 
+          # Container registry password
+          password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM 
+          # Container registry server url
+          login-server: acrmarch2021.azurecr.io
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: 
-        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-        docker tag my-image-name:$(date +%s) acrmarch2021.azurecr.io/mrach21
-        docker login acrmarch2021.azurecr.io
-        docker push acrmarch2021.azurecr.io/march21
+      run: docker build . --file Dockerfile --tag my-image-name:test
+      # Push is a shorthand for --output=type=registry
+    - name: Build and push Docker images
+        # You may pin to the exact commit or the version.
+        # uses: docker/build-push-action@9379083e426e2e84abb80c8c091f5cdeb7d3fd7a
+    - uses: docker/build-push-action@v2.3.0
+      with:
+        push: --output=type=acrmarch2021.azurecr.io/march21
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+   # -  run: docker tag my-image-name:test acrmarch2021.azurecr.io/mrach21
+   #   run: docker login acrmarch2021.azurecr.io
+    #  run: docker push acrmarch2021.azurecr.io/march21
