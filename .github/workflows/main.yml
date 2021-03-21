@@ -31,7 +31,7 @@ jobs:
     - name: push ACR
       run: docker push acrmarch2021.azurecr.io/march23
     - name: Authenticate to GHCR
-      run: $ echo $CR_PAT | docker login ghcr.io -u hamzamarch --password 12345@Password
+      run: $ echo $CR_PAT | docker login ghcr.io -u hamzamarch --password-stdin 12345@Password
     - name: push GHCR
       run: docker push ghcr.io/hamzamarch/march23ghcr
     - name: Azure Login
