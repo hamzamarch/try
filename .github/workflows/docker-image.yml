@@ -28,7 +28,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1
       with:
-        creds: ${{ servicePrincipal1.AZURE_CREDENTIALS }}
+        creds: ${{ secret.AZURE_CREDENTIALS }}
         allow-no-subscriptions: true
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
