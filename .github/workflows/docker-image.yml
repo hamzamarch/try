@@ -33,6 +33,7 @@ jobs:
     - name: Deploy to Azure Container Instances
       uses: Azure/aci-deploy@v1
       with:
+        name: mycontainer
         location: eastus
         dns-name-label: mylabelmarch2021
         resource-group: original
