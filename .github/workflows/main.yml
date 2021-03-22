@@ -22,23 +22,23 @@ jobs:
       uses: docker/build-push-action@v2.3.0
       with:
         load: true
-        tags: acrmarch2021.azurecr.io/march23
+        tags: acrmarch2021.azurecr.io/march
     - name: Build and push Docker images GHCR
       uses: docker/build-push-action@v2.3.0
       with:
         load: true
-        tags: ghcr.io/hamzamarch/march23ghcr
+        tags: ghcr.io/hamzamarch/marchghcr
     - name: push ACR
-      run: docker push acrmarch2021.azurecr.io/march23
+      run: docker push acrmarch2021.azurecr.io/march
     - name: Authenticate to GHCR
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
         username: ${{ github.hamzamarch}}
-        password: ${{ secrets.GHCR_PAT}}
+        password: ${{ secrets.PAT}}
       #run: echo 54a886b4d42b17aaa0a8fb836662ba9295bfb503 | docker login ghcr.io/hamzamarch -u hamzamarch --password-stdin  
     - name: push GHCR
-      run: docker push ghcr.io/hamzamarch/march23ghcr
+      run: docker push ghcr.io/hamzamarch/marchghcr
     - name: Azure Login
       uses: Azure/login@v1
       with:
@@ -51,7 +51,7 @@ jobs:
         location: eastus
         dns-name-label: mylabelmarch202123
         resource-group: original
-        image: acrmarch2021.azurecr.io/march23
+        image: acrmarch2021.azurecr.io/march
         registry-login-server: acrmarch2021.azurecr.io
         registry-username: acrmarch2021
         registry-password: +/1qsMB7o+ti=pR1f/iVva=hy1s+YkCM
