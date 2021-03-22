@@ -34,8 +34,8 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: ${{ github.hamzamarch}}
-        password: ${{ secrets.PAT}}
+        username: ${{secrets.GHCR_USER}}
+        password: ${{secrets.PAT}}
       #run: echo 54a886b4d42b17aaa0a8fb836662ba9295bfb503 | docker login ghcr.io/hamzamarch -u hamzamarch --password-stdin  
     - name: push GHCR
       run: docker push ghcr.io/hamzamarch/marchghcr
